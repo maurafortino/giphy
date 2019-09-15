@@ -16,11 +16,18 @@
 
 <body>
     <div class="container">
-        <form>
-            <input id="input-field" type="text" placeholder="comedian name">
-            <button id="submit" type="submit">Add Comedian</button>
+        <h1>Giphy App</h1>
+        <form role="form" class="rounded">
+            <label for="input-field">Comedian Name:</label>
+            <input id="input-field" class="form-control" type="text" placeholder="Comedian Name">
+            <div class="text-center">
+            <button id="submit" class="btn btn-primary" type="submit">Add Comedian</button>
+            </div>
         </form>
-        <div id="buttons" class="row">
+        <div id="joke" class="text-center">
+            <h4 class="pt-2">Joke of the Day</h4>
+        </div>
+        <div id="buttons" class="row rounded justify-content-center">
 
         </div>
 
