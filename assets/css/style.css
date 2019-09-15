@@ -1,3 +1,9 @@
+h1, label, #joke, #show-answer{
+    color:darkslateblue;
+}
+#show-answer, input{
+    border-color:lavender;
+}
 button{
     padding: 5px;
     margin: 5px;
@@ -6,7 +12,6 @@ button{
 .button{
     color:white;
 }
-
 
 .btn-primary, .button{
     background-color: darkslateblue;
