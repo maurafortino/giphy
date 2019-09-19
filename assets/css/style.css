@@ -9,16 +9,16 @@ button{
     margin: 5px;
     background-color: none;
 }
-.button{
+.button, .clear{
     color:white;
 }
 
-.btn-primary, .button{
+.btn-primary, .button, .clear{
     background-color: darkslateblue;
     border-color: darkslateblue;
 }
 
-.btn-primary:hover, .button:hover{
+.btn-primary:hover, .button:hover, .clear:hover{
     background-color: darkslateblue;
     border-color: darkslateblue;
 }

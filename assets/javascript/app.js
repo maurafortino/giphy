@@ -4,6 +4,7 @@ var currentOffset = 0;
 var currentLimit = 10;
 
 function displayGif() {
+    clearGifs();
     var searchTerm = $(this).attr("data-person");
     console.log(searchTerm);
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=aQEvZ74gOggHnrCQS90ssi2MrjIcEwIg&q=" + searchTerm + "&limit=" + currentLimit + "&offset=" + currentOffset;
@@ -11,8 +12,6 @@ function displayGif() {
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
-        clearGifs();
         for(var i = currentOffset; i < response.data.length; i++){
             var newDiv = $("<div>")
             var newFigure = $("<figure>");
@@ -58,7 +57,7 @@ function createButtons(){
     };
     var clearButton = $("<button>");
     clearButton.text("Clear Gifs");
-    clearButton.addClass("button rounded");
+    clearButton.addClass("clear rounded");
     clearButton.attr("onclick", "clearGifs()");
     $("#buttons").append(clearButton);
 }
@@ -83,33 +82,13 @@ function get_joke_of_the_day() {
         method: "GET"
     }).then(function(response){
         var questionDiv = $("<div>");
-        var showAnswerButton = $("<button>");
-        showAnswerButton.attr("id", "show-answer");
-        showAnswerButton.addClass("rounded");
-        showAnswerButton.text("Show Answer");
-        questionDiv.text("Q: " + response.contents.jokes[0].joke.title);
-        questionDiv.append(showAnswerButton)
+        questionDiv.text(response.contents.jokes[0].joke.text);
         $("#joke").append(questionDiv);
 
     })
 };
 get_joke_of_the_day();
 
-function displayAnswer(){
-    var queryURL= "https://api.jokes.one/jod?category=animal";
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(response){
-        console.log(response);
-        var answerDiv = $("<div>");
-        answerDiv.addClass("answer");
-        answerDiv.text("A: "+response.contents.jokes[0].joke.text);
-        $("#joke").append(answerDiv);
-    });
-}
-
-$(document).on("click", "#show-answer", displayAnswer);
 
 
 
